@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaArrowRightLong } from "react-icons/fa6";
 
 function Card() {
-  const data=[
-    {name:'nirvan astakama', description:"realaction between mind and sole mahadav har har mahadav"},
-    {name:'rudhar astakama', description:"realaction between mind and sole mahadav har har mahadavfewedcvef vefve edvdfv"}
-  ];
+  const [val, setVal] = useState(false);
 
-  const handleClickDownload=()=>{alert("chal raha hai")};
   return (
-    <div className='w-full h-screen bg-zinc-300 flex flex-col gap-10 justify-center items-center' >
-      {data.map((item,index)=>(
-        <div className='w-90 px-3 py-2 bg-zinc-100 rounded-md'>
-        <h3 className='font-semibold text-xl'>{item.name}</h3>
-        <p className='text-xs mt-2'>{item.description}</p>
-        <button onMouseOver={handleClickDownload} className='px-2 py-1 bg-blue-400 text-xs fount-semibold text bg-zinc-100 rounded' >Download now</button>
+    <div className='w-full h-screen flex justify-center items-center'>
+      <div className='w-60 h-32 rounded-md overflow-hidden relative'>
+        {/* First Image */}
+        <img
+          className={`absolute transition-transform duration-500 ${val ? "-translate-x-full" : "translate-x-0"} w-full h-full object-cover`}
+          src="https://images.unsplash.com/photo-1566578312612-d903c67c4ad2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWFufGVufDB8fDB8fHww"
+          alt=""
+        />
+        {/* Second Image */}
+        <img
+          className={`absolute transition-transform duration-500 ${val ? "translate-x-0" : "translate-x-full"} w-full h-full object-cover`}
+          src="https://images.unsplash.com/photo-1556763298-45dd094af54e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fGluZGlhbnxlbnwwfHwwfHx8MA%3D%3D"
+          alt=""
+        />
+        <span 
+          onClick={() => setVal(!val)}
+          className='w-8 h-8 bg-[#dadada8b] flex items-center justify-center absolute bottom-4 left-1/2 transform -translate-x-1/2 rounded-full shadow-lg cursor-pointer'>
+          <FaArrowRightLong size={'.8em'} />
+        </span>
       </div>
-      ))}
     </div>
-  )
+  );
 }
 
 export default Card;
