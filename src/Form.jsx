@@ -1,0 +1,43 @@
+import React from 'react';
+import { useForm } from 'react-hook-form';
+
+function Form({ handleSubmitData }) {
+    const { register, handleSubmit, reset } = useForm();
+
+    const handleFormSubmit = (data) => {
+        handleSubmitData(data);
+        reset(); // Reset the form after submission
+    };
+
+    return (
+        <div className='mt-10 flex gap-10 justify-center'>
+            <form className='flex gap-10' onSubmit={handleSubmit(handleFormSubmit)}>
+                <input
+                    {...register('name')}
+                    className='rounded-md px-2 py-1 text-base font-semibold outline-none'
+                    type='text'
+                    placeholder='Name'
+                />
+                <input
+                    {...register('email')}
+                    className='rounded-md px-2 py-1 text-base font-semibold outline-none'
+                    type='email'
+                    placeholder='Email'
+                />
+                <input
+                    {...register('image')}
+                    className='rounded-md px-2 py-1 text-base font-semibold outline-none'
+                    type='text'
+                    placeholder='Image URL'
+                />
+                <input
+                    className='rounded-md px-2 py-1 bg-blue-500 text-white font-semibold'
+                    type='submit'
+                    value='Submit'
+                />
+            </form>
+        </div>
+    );
+}
+
+export default Form;
