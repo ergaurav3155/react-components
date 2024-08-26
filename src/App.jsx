@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+  import React, { useState } from 'react';
 // import Card from './Components/Card';
 import Props from './Components/props';
 
@@ -44,9 +45,35 @@ const handleFriendsButton = (cardeindex) => {
     <div className='w-full h-screen bg-zinc-300 flex gap-4 items-center justify-center'>
       {realdata.map((item, index) => (
         <Props key={index} index={index} handleClick={handleFriendsButton} values={item} />
-      ))}
+))}
+    </div>
+  );
+
+}
+export default App;
+{/*import React, { useState } from 'react';
+import Cards from './Formcomp/Cards';
+import Form from './Formcomp/Form';
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  const handleSubmitData = (data) => {
+    setUsers([...users, data]);
+  };
+  const handalRemove=(id)=>{
+    setUsers(()=>users.filter((item,index)=>index!=id));
+
+  }
+  return (
+    <div className='w-full h-screen bg-zinc-200 flex items-center justify-center'>
+      <div className='container mx-auto'>
+        <Cards handalRemove={handalRemove} users={users} />
+        <Form handleSubmitData={handleSubmitData} />
+      </div>
     </div>
   );
 }
 
 export default App;
+*/}
